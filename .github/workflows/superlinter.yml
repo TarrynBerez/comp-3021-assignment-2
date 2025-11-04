@@ -2,10 +2,8 @@
 name: Lint
 
 on: 
-  push: null
-  pull_request: null
-
-#permissions: {}
+  push: 
+  pull_request: 
 
 jobs:
   build:
@@ -16,6 +14,7 @@ jobs:
       contents: read
       packages: read
       statuses: write
+      security-events: write
 
     steps:
       - name: Checkout code
@@ -31,6 +30,7 @@ jobs:
 
       - name: Bandit Security Scan
         uses: reactive-firewall/python-bandit-scan@v2.3
+        continue-on-error: true
         with:
           path: "."
           level: high

@@ -35,8 +35,8 @@ jobs:
 
       - name: Bandit Security Scan
         uses: reactive-firewall/python-bandit-scan@v2.3
-        with: 
+        with:
           path: "."
           level: high
           confidence: high
-          exit_zero: true   
+          exit_zero: true
